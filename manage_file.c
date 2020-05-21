@@ -51,8 +51,9 @@ void ouvrir_fichier(char *file_name){
     file = fopen(file_name, "r");
     if (file) {
       printf("=============DEBUT==================\n");
-      while ((c = getc(file)) != EOF)
+      while ((c = getc(file)) != EOF){
         putchar(c);
+      }
       fclose(file);
       printf("\n=================FIN======================\n");
     }else{
@@ -60,6 +61,47 @@ void ouvrir_fichier(char *file_name){
       exit(-1);
     }
 }
+//Ecriture dans un fichier
+void write_file(char *fileName, char* chaine){
+	
+	FILE* file = fopen(fileName,"w");
+	
+	if(file){
+		fputs(chaine,file);
+		fclose(file);
+	}else{
+		printf("Fichier introuvable");
+	}
+}
+
+//Notre commande ls
+void our_ls(char *fileName){
+	
+}
+
+// Notre commande cp
+void our_cp(char *fileName, char *newFileName){
+	
+	int c;
+    FILE *file, *file2;
+    
+    create_file(newFileName);
+    
+    file = fopen(fileName, "r");
+    file2 = fopen(newFileName, "w");
+    
+    if (file && file2) {
+      while ((c = getc(file)) != EOF){
+        fputc(c,file2);
+      }
+      fclose(file2);
+      fclose(file);
+    }else{
+      printf("FILE NOT FOUND\n");
+      exit(-1);
+    }
+}
+
 
 //TO TEST
 // ce main sert juste pour tester les fonctions, test unitaire
@@ -69,6 +111,10 @@ int main()
 char *file_name = "./test.txt";
 printf ("START TEST\n");
 create_file(file_name);
+write_file(file_name,"test pour voir avec de nouveau truc de dedans");
+ouvrir_fichier(file_name);
+our_cp(file_name,"./new.txt");
+ouvrir_fichier("./new.txt");
 return 0;
 
 }

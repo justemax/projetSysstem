@@ -23,15 +23,21 @@ int main(void){
 				}
 				
 				
+				printf(arg[2]);
 				
 				
-				
-				if(strcmp("exit",arg[0]) < 1){
+				if(strcmp("exit",arg[0]) == 0){
 					printf("sortie \n");
 					exit(0);
 				}
-				else if(strcmp("echo",arg[0]) < 1){
-					printf("echo: %s \n", arg[1]);
+				else if(strcmp("echo",arg[0]) == 0){
+					//On test si on a une redirection vers un fichier
+					if(strcmp(arg[2],">") == 0 && strcmp(arg[3],"") > 0){
+						printf("dans fichier ercire\n");
+					}else{
+						printf("echo: %s \n", arg[1]);
+					}
+					
 				}
 				else{
 					printf("entre else\n");
