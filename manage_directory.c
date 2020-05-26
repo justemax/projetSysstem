@@ -116,16 +116,28 @@ void our_remove(char *path)
 	rmdir(path);
 }
 
+/* Fonction nous permettant de changer les droits d'un fichier */
+void our_chmod(char *path, char *droit){
+	
+	int i;
+	
+	i= strtol(droit,0,8);
+	
+	chmod(path,i);
+	
+}
+
 
 //TO TEST
 // ce main sert juste pour tester les fonctions, test unitaire
 int main()
 {
         //juste pour tester
-    char *path = "jamal/kenza/adam";
+    char *path = "jamal/Max/adam";
 		our_mkdir(path);
-		our_ls("jamal");
-		our_remove("jamal");
+		our_chmod("droit.txt","111");
+		our_ls(".");
+		//our_remove("jamal");
     return 0;
 
 }
