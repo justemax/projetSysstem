@@ -128,17 +128,3 @@ void our_chmod(char *path, char *droit){
 }
 
 
-//TO TEST
-// ce main sert juste pour tester les fonctions, test unitaire
-int main()
-{
-        //juste pour tester
-    char *path = "jamal/Max/adam";
-		our_mkdir(path);
-		our_chmod("droit.txt","111");
-		our_ls(".");
-		//our_remove("jamal");
-    return 0;
-
-}
-

@@ -74,10 +74,7 @@ void write_file(char *fileName, char* chaine){
 	}
 }
 
-//Notre commande ls
-void our_ls(char *fileName){
-	
-}
+
 
 // Notre commande cp
 void our_cp(char *fileName, char *newFileName){
@@ -103,18 +100,4 @@ void our_cp(char *fileName, char *newFileName){
 }
 
 
-//TO TEST
-// ce main sert juste pour tester les fonctions, test unitaire
-int main()
-{
-//juste pour tester
-char *file_name = "./test.txt";
-printf ("START TEST\n");
-create_file(file_name);
-write_file(file_name,"test pour voir avec de nouveau truc de dedans");
-ouvrir_fichier(file_name);
-our_cp(file_name,"./new.txt");
-ouvrir_fichier("./new.txt");
-return 0;
 
-}
