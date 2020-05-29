@@ -70,12 +70,20 @@ int main(void){
 						printf("entrez un nom de fichier");
 					}
 				}
-				else if(strcmp("rm",arg[0]) == 0){
+				else if(strcmp("rmDir",arg[0]) == 0){
 					strtok(arg[1],"\n");
 					if(strlen(arg[1]) != 0){
 						our_remove(arg[1]);
 					}else{
-						printf("entrez un nom de fichier a supp");
+						printf("entrez un nom de repertoire a supprimer");
+					}
+				}
+				else if(strcmp("rm",arg[0]) == 0){
+					strtok(arg[1],"\n");
+					if(strlen(arg[1]) != 0){
+						our_rmFile(arg[1]);
+					}else{
+						printf("entrez un nom de fichier a supprimer");
 					}
 				}
 				else if(strcmp("chmod",arg[0]) == 0){
@@ -86,10 +94,19 @@ int main(void){
 						printf("entrez un nom de fichier pour obtenir ses droits");
 					}
 				}
+				else if(strcmp("mv",arg[0]) == 0){
+					strtok(arg[2],"\n");
+					if(strlen(arg[1]) > 0 && strlen(arg[2]) > 0){
+						our_mv(arg[1], arg[2]);
+					}else{
+						printf("fichier non disponible ou path impossible a atteindre");
+					}
+				}
 				else{
 					printf("Commande inconnue ou arguments manquants\n");
 					
 				}
+				
 				
 				i = 0;
 		}

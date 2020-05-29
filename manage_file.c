@@ -8,6 +8,8 @@
 #include <sys/stat.h> // mode of file mode_t
 #include <ctype.h>    
 
+#include "manage_directory.h"
+
 //fonction return inode du fichier
 int get_inode (int fd)
 {
@@ -97,6 +99,17 @@ void our_cp(char *fileName, char *newFileName){
       printf("FILE NOT FOUND\n");
       exit(-1);
     }
+}
+
+void our_rmFile(char *fileName){
+	if(remove(fileName) != 0){
+		printf("Suppression impossible");
+	}
+}
+
+void our_mv(char *fileName, char *path){
+	our_cp(fileName, path);
+	our_rmFile(fileName);
 }
 
 
